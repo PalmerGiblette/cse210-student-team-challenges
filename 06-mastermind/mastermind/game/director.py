@@ -18,6 +18,7 @@ class Director():
             self._do_inputs()
             self._do_updates()
             self._do_output()
+
     def _do_inputs(self):
         board = self._board.to_string()
         self._console.write(board)
@@ -26,6 +27,7 @@ class Director():
         guess = self._console.read_number('>')
         move = Move(guess)
         player.set_move(move)
+
     def _do_updates(self):
         player = self._roster.get_current()
         self._board.check_guess(player.get_move())
@@ -36,6 +38,7 @@ class Director():
             self._console.write(f'{player.get_name()} won!')
         
         self._roster.next_player()
+        
     def _setup_game(self):
         for n in range(2):
             name = self._console.read(f'Enter a name for player {n + 1}')
