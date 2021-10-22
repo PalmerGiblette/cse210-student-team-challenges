@@ -4,7 +4,7 @@ class Roster():
         Class constructor.
         
         args:"""
-        self.current -1
+        self.current = -1
         self.players = []
 
     def get_current(self):

@@ -1,10 +1,12 @@
 import random
 class Board():
     def __init__(self):
-        self._board = {}
+        self._board = []
         self.code = []
         self._generate_code()
         self.won_game = False
+        self.hint = ""
+        
 
     def _generate_code(self):
         for i in range(5):
@@ -15,14 +17,9 @@ class Board():
         text += "-----------------------\n"
         for name in self._board:
             text += f"Player {name}: "
-            for digit in self._board[name][0]:
-                text += f"{digit} "
+            text += "----"
             text += f"{self.hint}\n"
         text += "-----------------------\n"
-
-
-
-
 
     def check_guess(self, player):
         name = player.get_name()
@@ -31,9 +28,6 @@ class Board():
             self.won_game = True
         hint = self._create_hint(move)
         self._board[name] = [move, hint]
-
-            
-
 
     def _create_hint(self, guess):
         hint = ""
@@ -44,7 +38,7 @@ class Board():
                 hint += "o"
             else:
                 hint += "*"
-        return hint
+        return self.hint
 
     def populate_player(self, player):
-        self._board[player.get_name()] = [["-","-","-","-"], "****"]
+        self._board.append(player.get_name())
