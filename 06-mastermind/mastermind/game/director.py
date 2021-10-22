@@ -24,13 +24,16 @@ class Director():
         self._console.write(board)
         player = self._roster.get_current()
         self._console.write(f'{player.get_name()}\'s turn: ')
-        guess = self._console.read_number('>')
+        guess = self._console.read('>')
+        guess = guess.split(guess)
+        for i in guess:
+            guess[i] = int(guess[i])
         move = Move(guess)
         player.set_move(move)
 
     def _do_updates(self):
         player = self._roster.get_current()
-        self._board.check_guess(player.get_move())
+        self._board.check_guess(player)
     
     def _do_output(self):
         if self._board.won_game:
@@ -38,9 +41,10 @@ class Director():
             self._console.write(f'{player.get_name()} won!')
         
         self._roster.next_player()
-        
+
     def _setup_game(self):
         for n in range(2):
             name = self._console.read(f'Enter a name for player {n + 1}')
             player = Player(name)
+            self._board.populate_player(player)
             self._roster.add_player(player)
