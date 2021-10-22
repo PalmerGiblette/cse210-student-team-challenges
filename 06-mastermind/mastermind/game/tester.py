@@ -4,6 +4,6 @@ from game import move
 from game import player
 from game import roster
 
-class Testor():
+class Tester():
     def __init__(self):
         pass
