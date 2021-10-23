@@ -10,7 +10,7 @@ class Director():
         self._board = Board()
         self._console = Console()
         self._keep_playing = True
-        self._move = None
+        # self._move = None
         self._roster = Roster()
 
     
@@ -24,14 +24,18 @@ class Director():
     def _do_inputs(self):
         player = self._roster.get_current()
         self._console.write(f'{player.get_name()}\'s turn: ')
-        guess = int(self._console.read('Please input a code: '))
-        guess = [int(x) for x in str(guess)]
+        guess = self._console.read('Please input a code: ')
+        
         move = Move(guess)
+        
         player.set_move(move)
+        
+        
 
     def _do_updates(self):
         player = self._roster.get_current()
-        self._board.check_guess(player)
+        move = player.get_move()
+        # self._board.check_guess(player, move)
 
     
     def _do_output(self):
