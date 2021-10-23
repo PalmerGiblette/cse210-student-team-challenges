@@ -35,11 +35,12 @@ class Director():
     def _do_updates(self):
         player = self._roster.get_current()
         move = player.get_move()
-        # self._board.check_guess(player, move)
-
+        self._board.check_guess(move)
+        self._keep_playing = self._board.won_game
+        print(self._board._create_hint(move))
     
     def _do_output(self):
-        if self._board.won_game:
+        if self._board.won_game == False:
             player = self._roster.get_current()
             self._console.write(f'{player.get_name()} won!')
         

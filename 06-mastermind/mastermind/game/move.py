@@ -2,7 +2,6 @@ class Move():
     def __init__(self, guess_str):
         self._guess_list = [int(x) for x in guess_str]
 
-
     def get_guess_list(self):
         return self._guess_list
 
