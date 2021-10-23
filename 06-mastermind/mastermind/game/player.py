@@ -12,3 +12,14 @@ class Player():
             self (Player): an instance of Player.
         """
         return self._name
+
+    def get_move(self, move):
+        """
+        Returns the player's last move(an instance of move hasn't
+        moved yet this method returns None.
+        """
+
+        self._move = move
+    
+    def set_move(self, move):
+        self._move = move
