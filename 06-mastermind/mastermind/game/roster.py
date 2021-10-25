@@ -18,3 +18,6 @@ class Roster():
 
         if player not in self.players:
             self.players.append(player)
+
+    def next_player(self):
+        self.current = (self.current + 1) % len(self.players)
