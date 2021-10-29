@@ -25,12 +25,13 @@ click the "run" icon.
 ---
 The project files and folders are organized as follows:
 ```
-root                    (project root folder)
-+-- speed               (source code for game)
-  +-- game              (specific game classes)
-  +-- __init__.py       (python package file)
-  +-- __main__.py       (entry point for program)
-+-- README.md           (general info)
+root                         (project root folder)
++-- speed                    (source code for game)
+  +-- game                   (specific game classes)
+  +-- __init__.py            (python package file)
+  +-- __main__.py            (entry point for program)
++-- README.md                (general info)
++-- raylib-2.0.0-Win64-mingw (python package folder)
 ```
 
 ## Required Technologies
