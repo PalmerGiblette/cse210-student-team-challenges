@@ -41,3 +41,7 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add names and emails here
+Jared Ellis jaredee@byui.edu
+Sean Compton seancompton@byui.edu
+Palmer Giblette gib19003@byui.edu
+Jason Cramer cra20017@byui.edu
