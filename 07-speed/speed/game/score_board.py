@@ -1,5 +1,5 @@
 from game.actor import Actor
-from game.coord_point import Point
+from game.coordinate_point import Point
 
 class ScoreBoard(Actor):
     '''

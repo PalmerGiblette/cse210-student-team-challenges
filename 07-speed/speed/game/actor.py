@@ -1,5 +1,5 @@
 from game import constants
-from game.coord_point import Point
+from game.coordinate_point import Point
 
 class Actor:
     '''
