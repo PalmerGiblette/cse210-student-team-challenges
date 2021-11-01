@@ -25,12 +25,13 @@ click the "run" icon.
 ---
 The project files and folders are organized as follows:
 ```
-root                    (project root folder)
-+-- speed               (source code for game)
-  +-- game              (specific game classes)
-  +-- __init__.py       (python package file)
-  +-- __main__.py       (entry point for program)
-+-- README.md           (general info)
+root                         (project root folder)
++-- speed                    (source code for game)
+  +-- game                   (specific game classes)
+  +-- __init__.py            (python package file)
+  +-- __main__.py            (entry point for program)
++-- README.md                (general info)
++-- raylib-2.0.0-Win64-mingw (python package folder)
 ```
 
 ## Required Technologies
@@ -41,3 +42,7 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add names and emails here
+Jared Ellis jaredee@byui.edu
+Sean Compton seancompton@byui.edu
+Palmer Giblette gib19003@byui.edu
+Jason Cramer cra20017@byui.edu
