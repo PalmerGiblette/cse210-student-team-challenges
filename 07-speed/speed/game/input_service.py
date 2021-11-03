@@ -1,4 +1,8 @@
 import sys
+<<<<<<< HEAD
+=======
+import raylibpy
+>>>>>>> 1c94aa065b17ca238251c48f7af65c67459dd246
 
 class InputService:
     """Detects player input. The responsibility of the class of objects is to detect player keypresses and translate them into a point representing a direction (or velocity).
@@ -27,13 +31,11 @@ class InputService:
         Returns:
             string: The letter that was typed.
         """
-        result = ""
-        event = self._screen.get_key()
-        if not event is None:
-            if event == 27:
-                sys.exit()
-            elif event == 10: 
-                result = "*"
-            elif event >= 97 and event <= 122: 
-                result = chr(event)
-        return result
+        key_int = raylibpy.get_key_pressed()
+
+        key_string = None
+
+        if key_int != -1:
+            key_string = chr(key_int)
+
+        return key_string
