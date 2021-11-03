@@ -4,7 +4,6 @@ from game.move import Move
 from game.player import Player
 from game.roster import Roster
 
-
 class Director():
     def __init__(self):
         self._board = Board()

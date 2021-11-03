@@ -33,6 +33,9 @@ class InputService:
         key_string = None
 
         if key_int != -1:
-            key_string = chr(key_int)
+            if key_int == 10:
+                return '*'
+            else:
+                key_string = chr(key_int)
 
         return key_string
