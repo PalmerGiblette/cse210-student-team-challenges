@@ -1,8 +1,5 @@
 import sys
-<<<<<<< HEAD
-=======
 import raylibpy
->>>>>>> 1c94aa065b17ca238251c48f7af65c67459dd246
 
 class InputService:
     """Detects player input. The responsibility of the class of objects is to detect player keypresses and translate them into a point representing a direction (or velocity).
@@ -36,6 +33,9 @@ class InputService:
         key_string = None
 
         if key_int != -1:
-            key_string = chr(key_int)
+            if key_int == 10:
+                return '*'
+            else:
+                key_string = chr(key_int)
 
         return key_string
