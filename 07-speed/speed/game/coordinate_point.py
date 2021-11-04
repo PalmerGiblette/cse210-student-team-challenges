@@ -1,7 +1,6 @@
 class CoordinatePoint:
 
     def __init__(self, x, y):
-<<<<<<< HEAD
         """The class constructor.
         
         Args:
@@ -24,7 +23,7 @@ class CoordinatePoint:
         """
         x = self._x + other.get_x()
         y = self._y + other.get_y()
-        return Point(x, y)
+        return CoordinatePoint(x, y)
 
     def equals(self, other):
         """Whether or not this Point is equal to the given one.
@@ -58,13 +57,4 @@ class CoordinatePoint:
         Returns:
             integer: The vertical distance.
         """
-=======
-        self._x = x
-        self._y = y 
-
-    def get_x(self):
-        return self._x
-
-    def get_y(self):
->>>>>>> d47f6f594a3d9bb20f8430b39749828f928e10db
         return self._y
