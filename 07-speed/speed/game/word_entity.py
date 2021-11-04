@@ -11,12 +11,12 @@ class WordEntity(Actor):
         self._position = (0,0)
         self._velocity = (0,0)
         self._word = ""
-        self.populate_word(word_array)
+        self.populate_word()
     
-    def populate_word(self, word_array):
+    def populate_word(self):
         self._position = (constants.MAX_X, random.randint(0, constants.MAX_Y))
         self._velocity = (random.randit(1, constants.MAX_Y), 0)
-        self._word = random.choice(word_array)
+        self._word = random.choice(constants.Library)
 
 
     def get_word(self):
