@@ -86,5 +86,5 @@ class Director:
             for i in range(len(matches)):
                 if matches[i]:
                     word = self._words_list[i]
-                    self._score_board.add_points(word.get_points)
+                    self._score_board.add_points(word.get_points())
                     word.populate_word()

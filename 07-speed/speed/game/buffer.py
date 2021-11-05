@@ -24,14 +24,16 @@ class Buffer(Actor):
         return self._buffer[-1] == '*'
 
     def find_matches(self, word_list):
+        print(word_list)
         length = len(word_list)
         matches = [False]*length
-        for i in length:
+        print(length)
+        for i in range(length):
             word_class = word_list[i]
             word = word_class.get_word()
             if word in self._buffer:
                 matches[i] = True
-        self._buffer = ''
+        self._buffer = ' '
         return matches
 
         
