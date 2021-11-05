@@ -9,25 +9,22 @@ class Buffer(Actor):
         self._buffer = " "
         self.set_position(CoordinatePoint(50, 550))
         self._input_service = InputService()
+        #self._set_text(f"Buffer: {self._buffer}")
+
 
     def update_text(self):
         letter = self._input_service.get_letter()
         if letter != None:
             self._buffer += letter
-            self.set_text(self._buffer)
+            self.set_text(f"Buffer: {self._buffer}")
 
 
     def is_enter_pressed(self):
-        if self._buffer[-1] == '*':
-            print("enter press detected")
-
         return self._buffer[-1] == '*'
 
     def find_matches(self, word_list):
-        print(word_list)
         length = len(word_list)
         matches = [False]*length
-        print(length)
         for i in range(length):
             word_class = word_list[i]
             word = word_class.get_word()

@@ -34,9 +34,9 @@ class InputService:
         key_string = None
 
         if key_int != -1:
-            print(key_int)
+            
             if key_int == 32:
-                print("space press event")
+                
                 return '*'
             else:
                 key_string = chr(key_int)
