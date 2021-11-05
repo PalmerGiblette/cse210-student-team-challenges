@@ -6,7 +6,7 @@ class Buffer(Actor):
     
     def __init__(self):
         super().__init__()
-        self._buffer = ''
+        self._buffer = ["", ""]
         self.set_position(CoordinatePoint(50, 550))
         self._input_service = InputService()
 

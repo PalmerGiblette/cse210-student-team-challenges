@@ -15,9 +15,10 @@ class Director:
     Atributes:
         todo: fill this in lol
     '''
-    def __init__(self, output_service):
+    def __init__(self, output_service, input_service):
         self._keep_playing = True
         self._output_service = output_service
+        self._input_service = input_service
         self._score_board = ScoreBoard()
         self._buffer = Buffer()
         self._words_list = []
@@ -69,7 +70,7 @@ class Director:
         """
         updates the words in the list as they leave the screan or they get removed by the player
         """
-        for i in range(self._words_list):
+        for i in range(len(self._words_list)):
             word = self._words_list[i]
             word.move_next()
             if word.edge_of_screen():
