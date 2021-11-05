@@ -39,3 +39,9 @@ class InputService:
                 key_string = chr(key_int)
 
         return key_string
+    
+    def window_should_close(self):
+        """
+        Determines if the user is trying to close the window
+        """
+        return raylibpy.window_should_close()

@@ -1,4 +1,5 @@
 import os
+os.environ['RAYLIB_BIN_PATH'] = r'raylib-2.0.0-Win64-mingw\lib'
 
 from game.director import Director
 from game.output_service import OutputService
