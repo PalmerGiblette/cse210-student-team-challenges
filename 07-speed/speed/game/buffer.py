@@ -1,5 +1,4 @@
 from game.actor import Actor
-from game.input_service import InputService
 from game.coordinate_point import CoordinatePoint
 
 class Buffer(Actor):
@@ -8,15 +7,13 @@ class Buffer(Actor):
         super().__init__()
         self._buffer = " "
         self.set_position(CoordinatePoint(50, 550))
-        self._input_service = InputService()
-        #self._set_text(f"Buffer: {self._buffer}")
+        self.set_buffer()
 
 
-    def update_text(self):
-        letter = self._input_service.get_letter()
+    def update_text(self, letter):
         if letter != None:
             self._buffer += letter
-            self.set_text(f"Buffer: {self._buffer}")
+            self.set_buffer()
 
 
     def is_enter_pressed(self):
@@ -31,6 +28,10 @@ class Buffer(Actor):
             if word in self._buffer:
                 matches[i] = True
         self._buffer = ' '
+        self.set_buffer()
         return matches
+
+    def set_buffer(self):
+        self.set_text(f"Buffer: {self._buffer}")
 
         

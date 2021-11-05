@@ -36,7 +36,6 @@ class InputService:
         if key_int != -1:
             
             if key_int == 32:
-                
                 return '*'
             else:
                 key_string = chr(key_int)

@@ -46,7 +46,8 @@ class Director:
         print("Game end!")
 
     def _get_inputs(self):
-        self._buffer.update_text()
+        letter = self._input_service.get_letter()
+        self._buffer.update_text(letter)
 
     def _do_updates(self):
         
