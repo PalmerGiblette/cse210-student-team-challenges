@@ -1,5 +1,5 @@
 from game.actor import Actor
-from game.coordinate_point import Point
+from game.coordinate_point import CoordinatePoint
 
 class ScoreBoard(Actor):
     '''
@@ -8,7 +8,7 @@ class ScoreBoard(Actor):
     def __init__(self):
         super().__init__()
         self._points = 0
-        position = Point(1,0)
+        position = CoordinatePoint(1,0)
         self.set_position(position)
         self.set_text(f"Score: {self._points}")
     

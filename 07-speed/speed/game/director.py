@@ -2,6 +2,7 @@ import raylibpy
 from game import constants
 from game.score_board import ScoreBoard
 from game.buffer import Buffer
+from game.word_entity import WordEntity
 
 class Director:
     '''
@@ -14,12 +15,12 @@ class Director:
     Atributes:
         todo: fill this in lol
     '''
-    def __init__(self, input_service, output_service):
-        self._input_service = input_service
+    def __init__(self, output_service):
         self._keep_playing = True
         self._output_service = output_service
-        self._score_boar = ScoreBoard()
-        self._snake = Buffer()
+        self._score_board = ScoreBoard()
+        self._buffer = Buffer()
+        self._words_list = []
 
     def start_game(self):
         '''
@@ -30,6 +31,8 @@ class Director:
         '''
         print("Launching Speed....")
         self._output_service.open_window("Speed")
+
+        self._populate_words()
 
         while self._keep_playing:
             self._get_inputs()
@@ -42,17 +45,42 @@ class Director:
         print("Game end!")
 
     def _get_inputs(self):
-        pass
+        self._buffer.update_text()
 
     def _do_updates(self):
-        pass
+        self._update_words()
 
     def _do_outputs(self):
-        pass
+        self._output_service.draw_actors(self._words_list)
+        self._output_service.draw_actor(self._score_board)
+        self._output_service.draw_actor(self._buffer)
+        self._output_service.flush_buffer()
 
     def _populate_words(self):
-        pass
+        """
+        generates a data structure that creates the initial 5 words 
+        """
+        for _ in range(0, constants.STARTING_WORDS):
+            word = WordEntity()
+            self._words_list.append(word)
+        
 
     def _update_words(self):
-        pass
-        
+        """
+        updates the words in the list as they leave the screan or they get removed by the player
+        """
+        for i in range(self._words_list):
+            word = self._words_list[i]
+            word.move_next()
+            if word.edge_of_screen():
+                self._score_board.subtract_points(word.get_points())
+                word.populate_word()
+
+        if self._buffer.is_enter_pressed():
+            matches = self._buffer.find_matches(self._words_list)
+            
+            for i in range(len(matches)):
+                if matches[i]:
+                    word = self._words_list[i]
+                    self._score_board.add_points(word.get_points)
+                    word.populate_word()
