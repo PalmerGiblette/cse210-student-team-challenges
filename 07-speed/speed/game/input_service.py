@@ -29,11 +29,14 @@ class InputService:
             string: The letter that was typed.
         """
         key_int = raylibpy.get_key_pressed()
+        
 
         key_string = None
 
         if key_int != -1:
-            if key_int == 10:
+            print(key_int)
+            if key_int == 32:
+                print("space press event")
                 return '*'
             else:
                 key_string = chr(key_int)

@@ -49,9 +49,12 @@ class Director:
         self._buffer.update_text()
 
     def _do_updates(self):
+        
         self._update_words()
+        
 
     def _do_outputs(self):
+        self._output_service.clear_screen()
         self._output_service.draw_actors(self._words_list)
         self._output_service.draw_actor(self._score_board)
         self._output_service.draw_actor(self._buffer)

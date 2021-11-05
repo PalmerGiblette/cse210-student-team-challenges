@@ -6,7 +6,7 @@ class Buffer(Actor):
     
     def __init__(self):
         super().__init__()
-        self._buffer = ["", ""]
+        self._buffer = " "
         self.set_position(CoordinatePoint(50, 550))
         self._input_service = InputService()
 
@@ -18,6 +18,9 @@ class Buffer(Actor):
 
 
     def is_enter_pressed(self):
+        if self._buffer[-1] == '*':
+            print("enter press detected")
+
         return self._buffer[-1] == '*'
 
     def find_matches(self, word_list):

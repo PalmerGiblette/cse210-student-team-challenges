@@ -47,3 +47,13 @@ class OutputService:
             self (OutputService): An instance of OutputService.
         """ 
         raylibpy.end_drawing()
+
+    def clear_screen(self):
+        """Clears the screen in preparation for the next rendering.
+
+        Args:
+            self (OutputService): An instance of OutputService.
+        """ 
+        raylibpy.begin_drawing()
+        raylibpy.clear_background(raylibpy.WHITE)
+
