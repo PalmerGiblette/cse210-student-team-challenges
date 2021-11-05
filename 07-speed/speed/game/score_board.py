@@ -15,3 +15,7 @@ class ScoreBoard(Actor):
     def add_points(self, points):
         self._points += points
         self.set_text(f"Score: {self._points}")
+
+    def subtract_points(self,points):
+        self._points -= points
+        self.set_texts(f"Score: {self._points}")
