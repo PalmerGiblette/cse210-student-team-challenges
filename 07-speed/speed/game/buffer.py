@@ -11,15 +11,24 @@ class Buffer(Actor):
 
 
     def update_text(self, letter):
+        '''
+        Adds letter to buffer.
+        '''
         if letter != None:
             self._buffer += letter
             self.set_buffer()
 
 
     def is_enter_pressed(self):
+        '''
+        Detects if the space bar has been pressed.
+        '''
         return self._buffer[-1] == '*'
 
     def find_matches(self, word_list):
+        '''
+        Finds matches of words in buffer and returns booleans at their index.
+        '''
         length = len(word_list)
         matches = [False]*length
         for i in range(length):
